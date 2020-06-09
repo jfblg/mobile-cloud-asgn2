@@ -3,11 +3,7 @@ package org.magnum.mobilecloud.video.repository;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import com.google.common.base.Objects;
 
@@ -26,15 +22,23 @@ import com.google.common.base.Objects;
  * @author mitchell
  */
 @Entity
+//@Entity(name="video")
 public class Video {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "url")
 	private String url;
+
+	@Column(name = "duration")
 	private long duration;
+
+	@Column(name = "likes")
 	private long likes;
 	
 	@ElementCollection
